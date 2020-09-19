@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import styled from "styled-components";
+import { Mian } from "./Styles/Style";
 
 // firebaseのconfigファイルの場所
 import firebaseConfig from "./firebase/firebase";
@@ -25,7 +27,7 @@ const Form = () => {
     e.target.value = "";
   };
   return (
-    <div>
+    <Mian>
       <React.Fragment>
         <div>
           <h2>お問い合わせ</h2>
@@ -65,7 +67,7 @@ const Form = () => {
           </form>
         </div>
       </React.Fragment>
-    </div>
+    </Mian>
   );
 };
 
