@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
-import { Mian } from "./Styles/Style";
+import { Mian, Middle } from "./Styles/Style";
 
 // firebaseのconfigファイルの場所
 import firebaseConfig from "./firebase/firebase";
@@ -29,7 +29,7 @@ const Form = () => {
   return (
     <Mian>
       <React.Fragment>
-        <div>
+        <Middle>
           <h2>お問い合わせ</h2>
           <form onSubmit={onSubmithandleChange}>
             <TextField
@@ -65,7 +65,7 @@ const Form = () => {
               送信
             </Button>
           </form>
-        </div>
+        </Middle>
       </React.Fragment>
     </Mian>
   );
