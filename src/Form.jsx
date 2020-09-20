@@ -2,7 +2,13 @@ import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
-import { Mian, Middle } from "./Styles/Style";
+import {
+  Mian,
+  Middle,
+  Pagetitle,
+  SubPagetitle,
+  FormFlex,
+} from "./Styles/Style";
 
 // firebaseのconfigファイルの場所
 import firebaseConfig from "./firebase/firebase";
@@ -30,8 +36,12 @@ const Form = () => {
     <Mian>
       <React.Fragment>
         <Middle>
-          <h2>お問い合わせ</h2>
-          <form onSubmit={onSubmithandleChange}>
+          <Pagetitle>
+            <SubPagetitle>CONTACT</SubPagetitle>
+            <br></br>
+            お問い合わせ
+          </Pagetitle>
+          <FormFlex onSubmit={onSubmithandleChange}>
             <TextField
               name="name"
               label="お名前"
@@ -62,9 +72,9 @@ const Form = () => {
               type="submit"
               //   style={textFieldStyle}
             >
-              送信
+              お問い合わせする
             </Button>
-          </form>
+          </FormFlex>
         </Middle>
       </React.Fragment>
     </Mian>
