@@ -1,4 +1,4 @@
-#React-Hooksとnodemailerを使用してGmailにメールを送信する
+# React-Hooksとnodemailerを使用してGmailにメールを送信する
 ***
 Reactで制作して静的サイトにどうやってフォームを入れようという疑問から制作した
 nodemailerを使用すればReactで制作したサイトにフォームを付け加える事が可能
@@ -7,7 +7,7 @@ Googleで二段階認証を設定している方はこちらの手順が必要
 Googleアカウントにログインする[アカウント]> [サインインとセキュリティ]> [アプリパスワード]に移動します（もう一度サインインして本人であることを確認します）下にスクロールして[アプリを選択]（[パスワードとサインイン方法]ボックス内）に移動し、[その他]（カスタム名）を選択します。 ）このアプリのパスワードに名前を付けます（例： "nodemailer"）[生成]を選択します長い生成されたパスワードをコピーして、実際のGmailパスワードの代わりにNode.jsスクリプトに貼り付けます。
 
 
-#Recoil
+# Recoil
 ***
 [参考サイト](https://recoiljs.org/docs/introduction/getting-started)
 [参考サイト](https://tech.stmn.co.jp/entry/2020/05/28/152551)
@@ -15,7 +15,7 @@ Googleアカウントにログインする[アカウント]> [サインインと
 ```fish
 npm install recoil
 ```
-#####親componentを記述しているcomponentに
+##### 親componentを記述しているcomponentに
 ```
 import { RecoilRoot } from "recoil";
 
@@ -23,11 +23,11 @@ import { RecoilRoot } from "recoil";
    <StepperPage />
 </RecoilRoot>
 ```
-#####データを入力するcomponentでatomとuseRecoilStateを作ってデータを作成する
+##### データを入力するcomponentでatomとuseRecoilStateを作ってデータを作成する
 今回は複数の値を管理する事が理解できていないため、Input一つずつStateを作成した
 
-######複数コンポーネントで共有されるステートはatomと呼ぶ
-######atomに更新が入るとそのatomを使用しているコンポーネント全てに再レンダリングが走る
+###### 複数コンポーネントで共有されるステートはatomと呼ぶ
+###### atomに更新が入るとそのatomを使用しているコンポーネント全てに再レンダリングが走る
 ```
 import { atom, useRecoilState } from "recoil";
 
@@ -50,7 +50,7 @@ const [nameData, SetnameData] = useRecoilState(nameState);
 const [emailData, SetemailData] = useRecoilState(emailState);
 const [textData, SettextData] = useRecoilState(textState);
 ```
-#####データを表示するcomponentで先程作成したatomをよびだす
+##### データを表示するcomponentで先程作成したatomをよびだす
 ```
 import { selector, useRecoilValue } from "recoil";
 import { nameState, emailState, textState } from "./InputComponent";
