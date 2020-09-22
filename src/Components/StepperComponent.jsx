@@ -13,6 +13,7 @@ import Button from "@material-ui/core/Button";
 
 import InputComponent from "./InputComponent";
 import ConfirmationComponent from "./ConfirmationComponent";
+import ThanksComponent from "./ThanksComponent";
 
 //*******************************************************************//
 // 親component（ステータスバーの表示がある）
@@ -201,7 +202,7 @@ function getStepContent(step) {
     case 1:
       return <ConfirmationComponent />;
     default:
-      return "Unknown step";
+      return <ThanksComponent />;
   }
 }
 //*******************************************************************//

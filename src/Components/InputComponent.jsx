@@ -36,10 +36,6 @@ function InputComponent() {
   const [emailData, SetemailData] = useRecoilState(emailState);
   const [textData, SettextData] = useRecoilState(textState);
 
-  //   const handleChange = (input) => (e) => {
-  //     SetJobData({ ...JobFormData, [input]: e.target.value });
-  //   };
-
   const onChangeName = (event) => {
     SetnameData(event.target.value);
   };
@@ -58,6 +54,9 @@ function InputComponent() {
   //   };
   //   const onChangeText = (event) => {
   //     SetJobData(...JobFormData, event.target.value);
+  //   };
+  //   const onChange = e => {
+  //     setFormData({ ...formData, [e.target.name]: e.target.value });
   //   };
 
   return (
