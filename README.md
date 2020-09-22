@@ -30,6 +30,7 @@ import { RecoilRoot } from "recoil";
 今回は複数の値を管理する事が理解できていないため、Input一つずつStateを作成した
 
 ###### 複数コンポーネントで共有されるステートはatomと呼ぶ
+###### 今回フォームの確認画面で入力した値を確認したいのでatomで作成する
 ###### atomに更新が入るとそのatomを使用しているコンポーネント全てに再レンダリングが走る
 ```
 import { atom, useRecoilState } from "recoil";
