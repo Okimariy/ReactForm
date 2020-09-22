@@ -1,9 +1,12 @@
 import React from "react";
-import Form from "./Form";
+import StepperPage from "./Components/StepperComponent";
+import { RecoilRoot } from "recoil";
 function App() {
   return (
     <div className="App">
-      <Form />
+      <RecoilRoot>
+        <StepperPage />
+      </RecoilRoot>
     </div>
   );
 }

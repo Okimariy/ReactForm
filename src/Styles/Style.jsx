@@ -13,14 +13,12 @@ import styled from "styled-components";
 
 export const Mian = styled.div`
   width: 100vw;
-  height: 100vh;
-  background: #f5f5f5;g
+  background: #f5f5f5;
 `;
 export const Middle = styled.div`
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  height: 100vh;
   background: #f5f5f5;
   padding: 40px 0;
   @media (min-width: 481px) {
