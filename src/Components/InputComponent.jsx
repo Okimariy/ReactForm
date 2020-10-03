@@ -1,6 +1,6 @@
 import React, { Component, useContext } from "react";
 import TextField from "@material-ui/core/TextField";
-import { atom, useRecoilState, selector } from "recoil";
+import { RecoilRoot, atom, useRecoilState } from "recoil";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
 import {
@@ -23,6 +23,22 @@ export const textState = atom({
   key: "textState",
   default: "",
 });
+export const okimari = atom({
+  key: "okimari",
+  default: {
+    name: "",
+    email: "",
+    content: "",
+  },
+});
+export const okimariState = atom({
+  key: "okimariState",
+  default: {
+    name: "",
+    email: "",
+    content: "",
+  },
+});
 
 // firebaseのconfigファイルの場所
 // import firebaseConfig from "../firebase/firebase";
@@ -31,21 +47,44 @@ export const textState = atom({
 const firebase = require("firebase");
 require("firebase/functions");
 
+// const useOjectFunction = () => {
+//   const [objectOkimari, setObject] = useRecoilState(okimari);
+//   const handleChange = (e) => {
+//     let keyNmaeTwice = e.target.name;
+//     let newobjectOkimari = objectOkimari;
+//     newobjectOkimari[keyNmaeTwice] = e.target.value;
+//     // setObject((newobjectOkimari[keyNmaeTwice] = e.target.value));
+//     setObject(newobjectOkimari);
+//   };
+//   return [objectOkimari, handleChange];
+// };
+
 function InputComponent() {
   const [nameData, SetnameData] = useRecoilState(nameState);
   const [emailData, SetemailData] = useRecoilState(emailState);
   const [textData, SettextData] = useRecoilState(textState);
+  const [okimari, setOkimari] = useRecoilState(okimariState);
+  // const [objectOkimari, handleChange] = useOjectFunction();
 
-  const onChangeName = (event) => {
-    SetnameData(event.target.value);
-  };
-  const onChangeEmail = (event) => {
-    SetemailData(event.target.value);
-  };
-  const onChangeText = (event) => {
-    SettextData(event.target.value);
-  };
+  // const onChangeName = (event) => {
+  //   SetnameData(event.target.value);
+  // };
+  // const onChange = (e) => {
+  //   SetnameData({ ...okimari, [e.target.name]: e.target.value });
+  // };
+  // const onChangeEmail = (event) => {
+  //   SetemailData(event.target.value);
+  // };
+  // const onChangeText = (event) => {
+  //   SettextData(event.target.value);
+  // };
 
+  // ↓いける
+  const onChange = (e) => {
+    setOkimari({ ...okimari, [e.target.name]: e.target.value });
+  };
+  console.log(okimari);
+  // console.log(objectOkimari);
   //   const onChangeName = (event) => {
   //     SetJobData(...JobFormData, event.target.value);
   //   };
@@ -74,12 +113,12 @@ function InputComponent() {
               label="お名前"
               type="text"
               required
-              value={nameData}
+              value={okimari.name}
               //   onChange={(e) => SetJobData(e.target.value)}
               //   onChange={(e) =>
               //     SetJobData({ ...JobFormData, jobname: e.target.value })
               //   }
-              onChange={onChangeName}
+              onChange={onChange}
               //   onChange={handleChange}
               //   KeyboardButtonProps={{
               //     "aria-label": "change jobname",
@@ -90,8 +129,8 @@ function InputComponent() {
               label="メールアドレス"
               type="mail"
               required
-              value={emailData}
-              onChange={onChangeEmail}
+              value={okimari.email}
+              onChange={onChange}
               //   onChange={handleChange("jobmail")}
               //   onChange={(e) => SetJobData(e.target.value)}
             />
@@ -103,15 +142,15 @@ function InputComponent() {
               rows="8"
               margin="normal"
               variant="outlined"
-              value={textData}
-              onChange={onChangeText}
+              value={okimari.content}
+              onChange={onChange}
               //   onChange={handleChange("jobtext")}
               //   onChange={(e) => SetJobData(e.target.value)}
             />
           </FormFlex>
-          <p>名前:{nameData}</p>
-          <p>メールアドレス:{emailData}</p>
-          <p>内容:{textData}</p>
+          <p>名前:{okimari.name}</p>
+          <p>メールアドレス:{okimari.email}</p>
+          <p>内容:{okimari.content}</p>
         </Middle>
       </React.Fragment>
     </Mian>
